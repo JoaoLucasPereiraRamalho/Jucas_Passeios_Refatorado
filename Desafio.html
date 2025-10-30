@@ -1,0 +1,391 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Pagina Inicial</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+ 
+
+
+  <!-- Favicons -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="Desafio.css">
+
+
+<header class="header">
+  <div class="home">
+    <a href="Desafio.html"><img style="width: 40px; height: 40px;" src="https://www.logogenio.pt/download/preview/medium/6916449"></a>
+      <h3>Jucas Passeios</h3>
+  </div>
+  <div class="navegar">
+          <b>Promoções</b>
+          <b>Eventos</b>
+          <b>Viagens</b>
+          <a style= " color: white; text-decoration: none; a:hover{ color:gray}"href="Hoteis.html"><b>Hoteis</b></a>
+  </div>
+  </div class="direita">
+      <form action="BackUsuarios/axiosapi/Login.html">
+      <input type="submit" value="Login" id="login"></button>
+      </form>
+      <input type="text" id="buscafake" placeholder="Pesquise aqui">
+      <button id="">Buscar</button>
+      <b style="margin-top: 55px; margin-left: 90%;font-size: 8px; position:absolute">Desenvolvido por Jl</b>
+  <div>
+
+</header>
+
+<main role="main">
+
+  <div class="branco">
+  </div>
+  <div class="slider">
+    <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+    
+
+    <div class="slide first">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Eiffel_tower_at_dawn_horizontal.jpg" alt="Imagem 1"/>
+    </div>
+    <div class="slide">
+        <img src="https://i.pinimg.com/originals/6d/b7/66/6db766ff6f8b38113032addf84c48f5a.jpg" alt="Imagem 2"/>
+    </div>
+    <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Eiffel_tower_at_dawn_horizontal.jpg" alt="Imagem 3"/>
+    </div>
+    <div class="slide">
+        <img src="https://img.freepik.com/fotos-gratis/pico-da-montanha-iluminado-pelo-nascer-do-sol-laranja-gerado-pela-ia_188544-38724.jpg?size=626&ext=jpg&ga=GA1.1.1242040864.1701287596&semt=ais" alt="Imagem 4" />
+    </div>
+
+    <div class="navegation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+        <div class="auto-btn4"></div>
+    </div>
+
+    </div>
+
+    <div class="manual-navegation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+    </div>
+</div>
+
+
+<div class="paiT">
+  <div class="espaco"></div>
+  <div class="lugar">
+  <div>
+    <b id="lugar1">Origem</b>
+    <input type="insert" placeholder="De onde vai sair">
+  </div>
+  <div>
+    <b id="lugar2">Destino</b>
+    <input type="insert" placeholder="Para onde voce vai"> 
+  </div>
+  </div>
+
+<div class="espaco"></div>
+
+  <div class="data">
+  <div>
+    <b id="data1">Data saida</b>
+    <input type="date">
+  </div>
+  <hr id="vetical">
+  <div>
+    <b id="data1">Data chegada</b>
+    <input type="date"> 
+  </div>
+  </div>
+
+  <div class="espaco"></div>
+
+  <div class="quartos">
+  <div>
+    <b id="">Quartos</b>
+    <br>
+    <select>
+    <option value="1 quarto">1 quarto</option>
+    <option value="2 quartos">2 quartos</option>
+    <option value="3 quartos">3 quartos</option>
+    <option value="4 quartos">4 quartos</option>
+    </select>
+  </div>
+  <div>
+    <b id="">Pessoas</b>
+      <br>
+      <select>
+        <option value="1">1 pessoa</option>
+        <option value="2 quartos">2 pessoas</option>
+        <option value="3 quartos">3 pessoas</option>
+        <option value="4 quartos">4 pessoas</option>
+        </select>
+  </div>
+  </div>
+
+  <div class="espaco"></div>
+
+  <div class="buscar">
+  <button id="buscar"><b>Buscar</b></button>
+  </div>
+
+</div>
+
+
+<div class="paiC">
+  <div class="cards">
+<div class="card">
+  <div class="imagem_card">
+    <img src="Imagens\Balão.webp" id="imagem">
+  </div>
+  <div>
+    <button id="butao1">Avião</button>
+  </div>
+  <div class="descri">
+    <h5>Descrição</h5>
+  </div>
+  <div class="valor">
+    <hr>
+    <h2 id="valor">R$ Valor</h2>
+  </div>
+
+</div>
+<div class="card">
+  <div class="imagem_card">
+    <img src="Imagens\Campos-do-Jordao2.jpg" id="imagem">
+  </div>
+  <div>
+    <button id="butao1">Avião</button>
+  </div>
+  <div class="descri">
+    <h5>Descrição</h5>
+  </div>
+  <div class="valor">
+    <hr>
+    <h2 id="valor">R$ 1979,89</h2>
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="imagem_card">
+    <img src="Imagens\chichen-itza.jpg" id="imagem">
+  </div>
+  <div>
+    <button id="butao1">Avião</button>
+  </div>
+  <div class="descri">
+    <h5>Descrição</h5>
+  </div>
+  <div class="valor">
+    <hr>
+    <h2 id="valor">R$ 1979,89</h2>
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="imagem_card">
+    <img src="Imagens\Campos_do_Jordão.jpg" id="imagem">
+  </div>
+  <div>
+    <button id="butao1">Avião</button>
+  </div>
+  <div class="descri">
+    <h5>Descrição</h5>
+  </div>
+  <div class="valor">
+    <hr>
+    <h2 id="valor">R$ 1979,89</h2>
+  </div>
+
+  </div>
+</div>  
+  <div class="textocard">
+      <h2>Passagens aereas<b> Ofertas de voos com preços arrasadores</b></h2>
+      <br>
+      <br>
+      <p> Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição tipográfica. Lorem Ipsum tem sido o texto fictício padrão da indústria desde 1500, quando um impressor desconhecido pegou uma prova de tipos e a misturou para fazer um livro de espécimes de tipos.</p>
+
+  </div>
+
+</div>
+
+
+  <hr>
+
+  <div class="pait1">
+    <div class="texto1">
+      <br>
+      <br>
+      <br>
+      <h2>Hospedagens<b> Encontre a hospedagem perfeita com os melhores preços</b></h2>
+      <br>
+      <br>
+      <p> Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição tipográfica. Lorem Ipsum tem sido o texto fictício padrão da indústria desde 1500, quando um impressor desconhecido pegou uma prova de tipos e a misturou para fazer um livro de espécimes de tipos. Ela sobreviveu não apenas a cinco séculos, mas também ao salto para a composição tipográfica eletrônica, permanecendo essencialmente inalterada.</p>
+    </div>
+    <div class="textoimg1">
+      <img src="Imagens/Jordania.jpg">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pai">
+    <div class="textoimg2">
+      <img src="Imagens/Balão2.webp">
+    </div>
+    <div class="texto2">
+      <br>
+      <br>
+      <br>
+      <h2>Jucas Passeios<b> Sempre trabalhando para você, desde novembro de 2023</b></h2>
+      <br>
+      <p>Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição tipográfica. Lorem Ipsum tem sido o texto fictício padrão da indústria desde 1500, quando um impressor desconhecido pegou uma prova de tipos e a misturou para fazer um livro de espécimes de tipos. Ela sobreviveu não apenas a cinco séculos, mas também ao salto para a composição tipográfica eletrônica, permanecendo essencialmente inalterada. Foi popularizado na década de 1960 com o lançamento de folhas Letraset contendo passagens de Lorem Ipsum e, mais recentemente, com software de editoração eletrônica como Aldus PageMaker, incluindo versões de Lorem Ipsum.</p>
+    </div>
+  </div>
+
+  <hr>
+    
+
+  <div class="faixa">
+    <div class="faixa2">
+    <p>
+      Confira as ofertas da temporada de Verão, o momento perfeito para viajar, curtir e ser feliz em mais de
+    <b id="destaque">
+      150 destinos no Brasil 
+    </b>
+      e no mundo.
+    </p>
+    <div id="butao2">
+      <button id="button2"><h4>Compre já</h4></button>
+    </div>
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+
+</div>
+
+<div class="paiQ" >
+
+  <div class="quadro1" style="box-shadow: 5px 5px 15px black;">
+    <div class="limite"><p style="padding: 15px;"><b>Viagens internacionais</p>b></p></div>
+    <div id="dentroq1"><div class="limite"><p style="padding: 5px;">Pacotes a partir de <br><b style="color:ffa500">12x de R$195</b></p></div></div>
+    <div><input id="dentro1q2" type="image" src="Imagens\Palacio-india.jpg"></div>
+  </div>
+
+  <div class="quadro2" style="box-shadow: 5px 5px 15px black;">
+    <div class="limite"><p style="padding: 25px;">Black Friday</p></div>
+    <div id="dentroq2"><div class="limite"><p style="padding: 3px;">Temporada de cruzeiros<b style="font-size: 20; color:ffa500"> pela metade do preço</b></p><h2></h2></div></div>
+    <div><input id="dentro2q2" type="image" src="Imagens\Ilha.jpg"></div>
+  </div>
+
+</div>
+
+<div class="paiQ2" >
+  <div class="quadro4" style="box-shadow: 5px 5px 15px black;">
+    <div class="limite3"><b style="padding-top: 40px; padding-left: 80px; font-size:25px;">Pacotes completos</b></div>
+    <div id="dentroq4"><div class="limite3"><p style="padding-top: 40px; padding-left: 80px; font-size:25px;">Opções all inclusive* </p><p></p></div></div>
+    <div><input id="dentro4q2" type="image" src="Imagens\campos-do-jordao.webp"></div>
+  </div>
+
+  <div class="quadro3" style="box-shadow: 5px 5px 15px black;">
+    <div class="limite2" style="margin-top: 150px;"><br><br><p style="padding:35px; font-size:23px;">A partir de R$ <b style="color:704900">260*</b></p></div>
+    <div id="dentroq3"><div class="limite2"><p style="padding:18px; font-size:30px;">Especial Fim de ano</p><p></p></div></div>
+    <div><input id="dentro3q2" type="image" src="Imagens\Lago.jpg"></div>
+  </div>
+</div>
+
+
+
+  
+
+
+
+
+<hr class="featurette-divider">
+
+<footer>
+  <div class="footer_content">
+    <div class="footer_contacts">
+      <img style="margin-left: 10%;width: 140px; height: 100px;" src="https://www.logogenio.pt/download/preview/medium/6916449">
+      <p>It's all about your dreams.</p>
+
+      <div class="footer_social_midia">
+        <a href="" class="footer_link" id="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="" class="footer_link" id="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="" class="footer_link" id="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <ul class="footer-list">
+      <li>
+        <h3>Blog</h3>
+      </li>
+      <li>
+        <a href="#" class="footer-link">Tech</a>
+      </li>
+      <li>
+        <a href="#" class="footer-link">Adventures</a>
+      </li>
+      <li>
+        <a href="#" class="footer-link">Music</a>
+      </li>
+    </ul>
+
+    <ul class="footer-list">
+      <li>
+        <h3>Maps</h3>
+      </li>
+      <li>
+        <iframe style="margin-left: -100px; border: solid 1px black" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.005321294445!2d-44.997272425496924!3d-21.231637580156825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffdf15a582fc3%3A0xb9ba058be0f14e2e!2sUFLA%20-%20Portaria%20Principal!5e0!3m2!1spt-BR!2sbr!4v1701382290959!5m2!1spt-BR!2sbr" width="270" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </li>
+      
+    </ul>
+
+    <div class="footer_subscribe">
+      <h3>Subscribe</h3>
+
+      <p>Entre com o seu e-mail para receber notificações sobre promoções</p>
+
+      <div class="input_group">
+        <input type="email" id="email">
+        <button id="carta"><i class="fa-regular fa-envelope"></i></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer_copyright">
+    &#169 
+    2023 - Todos direitos reservados - João Lucas
+    <div>
+      <a href="#top"><input type="button" id="voltar" value="^"></a>
+    </div>
+  </div>
+</footer>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="Carrossel.js"></script>
+</body></html>

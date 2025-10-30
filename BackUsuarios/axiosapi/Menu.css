@@ -1,0 +1,121 @@
+
+
+body{
+    margin:0;
+}
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: #0f3c4c;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    color:aliceblue;
+    z-index: 999;
+}
+
+.header b{
+    margin-left: 15px;
+}
+.home{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    height: 70px;
+    padding-top: 20px;
+}
+
+.navegar{
+    width: 50%;
+    height: 70px;
+    padding-top: 30px;
+}
+
+.direita{
+    width: 30%;
+    height: 70px;
+}
+
+#buscafake{
+    width: 15%;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px gray;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header button{
+    border-radius: 3px;
+    width: 5%;
+    height: 40px;
+    transition: 1s;
+    color: orange;
+    border:solid 1px orange;
+    background-color: white;
+    margin-top: 15px;
+}
+button:hover{
+    background-color: orange;
+    color: white;
+}
+#login{
+    border-radius: 3px;
+    width: 100%;
+    height: 40px;
+    transition: 1s;
+    color: orange;
+    border:solid 1px orange;
+    background-color: white;
+    margin-top: 15px;
+}
+#login:hover{
+    background-color: orange;
+    color: white;
+}
+
+
+.pai a{
+    z-index: 90;
+    color: white;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 100px;
+}
+.pai{
+    display: flex;
+    flex-direction: row; 
+    text-align: center;
+    justify-content: center;
+}
+.quadradom{
+    position:relative;
+    margin: 1rem 2rem;
+    width: 300px;
+    height: 200px;;
+    border-radius: 5px;
+    background-color: blueviolet;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-image: url(https://img.freepik.com/vetores-gratis/fundo-de-galaxia-realista_23-2148991322.jpg);
+}
+.quadradom:hover{
+    transform: scale(1.15, 1.15);
+}
+.quadradom:hover::after{
+    opacity: 1;
+}
+.quadradom::after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    opacity:0;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: -1;
+}
+
+
