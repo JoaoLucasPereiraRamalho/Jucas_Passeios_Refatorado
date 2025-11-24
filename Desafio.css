@@ -213,7 +213,7 @@ header button:hover {
     width: 100%;
   }
 
-  /* ESTILOS PARA TABLET: 2 CARDS POR LINHA */
+  /* MEDIA QUERY PARA CARDS EM TABLET/MOBILE */
   .cards {
     width: 100%;
   }
@@ -221,14 +221,34 @@ header button:hover {
     width: calc(50% - 20px);
     min-width: 280px;
   }
+
+  /* NOVO: ESTILOS PARA AS SEÇÕES DE CONTEÚDO (Hospedagem / Jucas Passeios) */
+  .pai,
+  .pait1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .texto1,
+  .texto2 {
+    width: 90%;
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+
+  .textoimg1 img,
+  .textoimg2 img {
+    width: 90%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .pai {
+    flex-direction: column-reverse; /* Inverte Imagem/Texto para a ordem correta em mobile */
+  }
 }
 
-/* NOVA REGRA PARA CELULAR: ABAIXO DE 600PX */
 @media (max-width: 600px) {
-  .cards {
-    width: 100%;
-    justify-content: center;
-  }
   .card {
     width: 90%;
     max-width: 400px;
@@ -361,7 +381,7 @@ header button:hover {
 }
 .card img {
   width: 100%;
-  height: 150px; /* Reduz a altura da imagem para caber no novo height do card */
+  height: 150px;
   display: block;
   transition: all 0.3s linear;
 }
@@ -439,6 +459,13 @@ header button:hover {
 .pai {
   display: flex;
   flex-direction: row;
+  padding: 40px 0;
+}
+
+.pait1 {
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0;
 }
 
 .paiT {
@@ -518,44 +545,34 @@ header button:hover {
   background-color: var(--cor-secundaria);
 }
 
-.pait1 {
-  display: flex;
-  flex-direction: row;
+.texto1,
+.texto2 {
+  width: 50%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 0 10px;
+  justify-content: center;
+  text-align: justify;
+  height: auto;
 }
+
+.textoimg1 img,
+.textoimg2 img {
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 500px;
+  margin-left: 2%;
+  margin-right: 2%;
+  object-fit: cover;
+}
+
 .cards {
   width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.texto1 {
-  margin-left: 2%;
-  margin-right: 4%;
-  width: 100%;
-  height: 500px;
-  justify-content: center;
-  text-align: justify;
-}
-.textoimg1 img {
-  width: 500px;
-  height: 500px;
-  margin-left: -4%;
-}
-
-.textoimg2 img {
-  width: 500px;
-  height: 500px;
-  margin-left: 4%;
-}
-.texto2 {
-  margin-left: 4%;
-  margin-right: 2%;
-  width: 100%;
-  height: 500px;
-  justify-content: center;
-  text-align: justify;
 }
 
 .textocard {
@@ -1001,6 +1018,31 @@ footer {
   .card {
     width: calc(50% - 20px);
     min-width: 280px;
+  }
+
+  /* NOVO: ESTILOS PARA AS SEÇÕES DE CONTEÚDO (Hospedagem / Jucas Passeios) */
+  .pai,
+  .pait1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .texto1,
+  .texto2 {
+    width: 90%;
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+
+  .textoimg1 img,
+  .textoimg2 img {
+    width: 90%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .pai {
+    flex-direction: column-reverse;
   }
 }
 
