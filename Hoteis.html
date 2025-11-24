@@ -1,278 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="Hoteis.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="Hoteis.css" />
     <title>Hoteis</title>
-</head>
-<body>
-  <header class="header">
-    <div class="home">
-      <a href="/Desafio.html"><img style="width: 40px; height: 40px;" src="https://www.logogenio.pt/download/preview/medium/6916449"></a>
-        <h3>Jucas Passeios</h3>
-    </div>
-    <div class="navegar">
-            <b>Promoções</b>
-            <b>Eventos</b>
-            <b>Viagens</b>
-            <a style= " color: white; text-decoration: none; a:hover{ color:gray}"href="Hoteis.html"><b>Hoteis</b></a>
-    </div>
-    </div class="direita">
-        <form action="BackUsuarios/axiosapi/Login.html">
-        <input type="submit" value="Login" id="login"></button>
-        </form>
-        <input type="text" id="buscafake" placeholder="Pesquise aqui">
-        <button id="">Buscar</button>
-        <b style="margin-top: 55px; margin-left: 90%;font-size: 8px; position:absolute">Desenvolvido por Jl</b>
-    <div>
-  
-  </header>
-  <div class="pai">
-    <div class="slider">
-        <div class="slides">
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-        
-
-        <div class="slide first">
-            <div class="cards">
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://cdn.guiase.net/wp-content/uploads/sites/1219/2020/06/hoteis-de-luxo-brasil3.jpg-2.png" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                </div><!-- /.row -->
-                
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="data:image/jpeg;base64,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" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                </div><!-- /.row -->
-                
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://quantocustaviajar.com/blog/wp-content/uploads/2017/12/melhores-hoteis-de-luxo-do-brasil-1.jpg" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                </div>
-                
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://vejario.abril.com.br/wp-content/uploads/2023/01/Grand-Hyatt-RJ-1.jpg?quality=70&strip=info&w=720&h=440&crop=1" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                  </div>
-                </div>  
-        </div>
-        <div class="slide">
-            <div class="cards1">
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://marthario.com.br/wp-content/uploads/2014/09/melhores-hoteis-do-mundo-2014-Destaque.jpg" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                </div><!-- /.row -->
-                
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://www.spiceuptheroad.com/site/wp-content/uploads/2016/08/hotel-destaque.jpg" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                </div><!-- /.row -->
-                
-                
-                
-                
-                <div class="card">
-                  <div class="imagem_card">
-                    <img src="https://pousadavivamar.com.br/wp-content/uploads/2019/06/WEB-PousadaVivamar-166-e1567982987303.jpg" id="imagem">
-                  </div>
-                  <div>
-                    <button id="butao1">Hotel</button>
-                  </div>
-                  <div class="descri">
-                    <h5>Descrição</h5>
-                  </div>
-                  <div class="valor">
-                    <hr>
-                    <h2 id="valor">Preço</h2>
-                  </div>
-                
-                  </div>
-                </div>  
-                
+  </head>
+  <body>
+    <main role="main">
+      <header class="header">
+        <div class="home">
+          <a href="Desafio.html">
+            <img
+              style="width: 40px; height: 40px"
+              src="https://www.logogenio.pt/download/preview/medium/6916449"
+            />
+          </a>
+          <h3>Jucas Passeios</h3>
         </div>
 
-        
-        
-        
-
-        <div class="navegation-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-            <div class="auto-btn4"></div>
+        <div class="navegar">
+          <b>Promoções</b>
+          <b>Eventos</b>
+          <b>Viagens</b>
+          <a
+            style="
+              color: white;
+              text-decoration: none;
+              a:hover {
+                color: gray;
+              }
+            "
+            href="Hoteis.html"
+            ><b>Hoteis</b></a
+          >
         </div>
 
+        <div class="acoes-menu">
+          <div class="direita">
+            <form action="BackUsuarios/axiosapi/Login.html">
+              <input type="submit" value="Login" id="login" />
+            </form>
+            <input type="text" id="buscafake" placeholder="Pesquise aqui" />
+            <button id="buscar-btn">Buscar</button>
+            <b class="desenvolvedor">Desenvolvido por Jl</b>
+          </div>
+          <button class="menu-toggle" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="hero-intro">
+        <div class="intro-left">
+          <i class="fa-solid fa-suitcase-rolling logo-icon"></i>
+          <h1>Os melhores **hotéis**<br />para sua viagem</h1>
+          <p class="origem-text">Saíndo de **São Paulo**</p>
+          <p class="taxas-text">
+            **Taxas de embarque serão cobradas na primeira parcela**
+          </p>
         </div>
 
-        
+        <div class="cards-carousel">
+          <div class="carousel-wrapper">
+            <div class="card promo-card">
+              <img
+                src="https://cdn.guiase.net/wp-content/uploads/sites/1219/2020/06/hoteis-de-luxo-brasil3.jpg-2.png"
+                alt="Hotel de luxo"
+              />
+              <div class="card-content">
+                <span class="location-tag">São Paulo | 3 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 12/12/2025<br />Volta: 19/12/2025</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 846</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
 
-        <div class="manual-navegation">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-            <label for="radio4" class="manual-btn"></label>
+            <div class="card promo-card">
+              <img
+                src="https://quantocustaviajar.com/blog/wp-content/uploads/2017/12/melhores-hoteis-de-luxo-do-brasil-1.jpg"
+                alt="Hotel luxuoso"
+              />
+              <div class="card-content">
+                <span class="location-tag">Florianópolis | 4 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 01/12/2025<br />Volta: 05/12/2025</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 828</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
+
+            <div class="card promo-card">
+              <img
+                src="https://vejario.abril.com.br/wp-content/uploads/2023/01/Grand-Hyatt-RJ-1.jpg?quality=70&strip=info&w=720&h=440&crop=1"
+                alt="Hotel Grand Hyatt"
+              />
+              <div class="card-content">
+                <span class="location-tag">Rio de Janeiro | 4 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 02/03/2026<br />Volta: 06/03/2026</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 1.604</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
+
+            <div class="card promo-card">
+              <img
+                src="https://pousadavivamar.com.br/wp-content/uploads/2019/06/WEB-PousadaVivamar-166-e1567982987303.jpg"
+                alt="Pousada Vivamar"
+              />
+              <div class="card-content">
+                <span class="location-tag">Porto Seguro | 7 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 10/01/2026<br />Volta: 17/01/2026</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 999</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
+
+            <div class="card promo-card">
+              <img
+                src="https://marthario.com.br/wp-content/uploads/2014/09/melhores-hoteis-do-mundo-2014-Destaque.jpg"
+                alt="Hotel de praia"
+              />
+              <div class="card-content">
+                <span class="location-tag">Salvador | 5 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 15/02/2026<br />Volta: 20/02/2026</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 1.250</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
+
+            <div class="card promo-card">
+              <img
+                src="https://www.spiceuptheroad.com/site/wp-content/uploads/2016/08/hotel-destaque.jpg"
+                alt="Hotel romântico"
+              />
+              <div class="card-content">
+                <span class="location-tag">Natal | 6 diárias</span>
+                <span class="saida-tag">Saíndo de São Paulo</span>
+                <p class="ida-volta">Ida: 22/11/2025<br />Volta: 28/11/2025</p>
+                <hr />
+                <span class="preco-base">A partir de</span>
+                <span class="preco-valor">R$ 1.100</span>
+                <span class="parcelamento">Em até 15x sem juros</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="textocard">
-    <br>
-      <br>
-      <h2>Hospedagem<b> Os melhores hoteis você encontra na Jucas Passeios</b></h2>
-      <br>
-      <br>
-      <p> Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição tipográfica. Lorem Ipsum tem sido o texto fictício padrão da indústria desde 1500.</p>
-
-  </div>
-</div>
-</body>
-<footer>
-  <div class="footer_content">
-    <div class="footer_contacts">
-      <img style="margin-left: 10%;width: 140px; height: 100px;" src="https://www.logogenio.pt/download/preview/medium/6916449">
-      <p>It's all about your dreams.</p>
-
-      <div class="footer_social_midia">
-        <a href="" class="footer_link" id="instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-
-        <a href="" class="footer_link" id="facebook">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-
-        <a href="" class="footer_link" id="whatsapp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
       </div>
 
-    </div>
+      <footer>
+        <div class="footer_content">
+          <div class="footer_contacts">
+            <img
+              style="margin-left: 10%; width: 140px; height: 100px"
+              src="https://www.logogenio.pt/download/preview/medium/6916449"
+            />
+            <p>It's all about your dreams.</p>
 
-    <ul class="footer-list">
-      <li>
-        <h3>Blog</h3>
-      </li>
-      <li>
-        <a href="#" class="footer-link">Tech</a>
-      </li>
-      <li>
-        <a href="#" class="footer-link">Adventures</a>
-      </li>
-      <li>
-        <a href="#" class="footer-link">Music</a>
-      </li>
-    </ul>
+            <div class="footer_social_midia">
+              <a href="" class="footer_link" id="instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
 
-    <ul class="footer-list">
-      <li>
-        <h3>Maps</h3>
-      </li>
-      <li>
-        <iframe style="margin-left: -100px; border: solid 1px black" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.005321294445!2d-44.997272425496924!3d-21.231637580156825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffdf15a582fc3%3A0xb9ba058be0f14e2e!2sUFLA%20-%20Portaria%20Principal!5e0!3m2!1spt-BR!2sbr!4v1701382290959!5m2!1spt-BR!2sbr" width="270" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </li>
-      
-    </ul>
+              <a href="" class="footer_link" id="facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
 
-    <div class="footer_subscribe">
-      <h3>Subscribe</h3>
+              <a href="" class="footer_link" id="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
 
-      <p>Entre com o seu e-mail para receber notificações sobre promoções</p>
+          <ul class="footer-list">
+            <li>
+              <h3>Blog</h3>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Tech</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Adventures</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Music</a>
+            </li>
+          </ul>
 
-      <div class="input_group">
-        <input type="email" id="email">
-        <button id="carta"><i class="fa-regular fa-envelope"></i></button>
-      </div>
-    </div>
+          <ul class="footer-list">
+            <li>
+              <h3>Maps</h3>
+            </li>
+            <li>
+              <iframe
+                style="margin-left: -100px; border: solid 1px black"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.005321294445!2d-44.997272425496924!3d-21.231637580156825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffdf15a582fc3%3A0xb9ba058be0f14e2e!2sUFLA%20-%20Portaria%20Principal!5e0!3m2!1spt-BR!2sbr!4v1701382290959!5m2!1spt-BR!2sbr"
+                width="270"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </li>
+          </ul>
 
-  </div>
-  <div class="footer_copyright">
-    &#169 
-    2023 - Todos direitos reservados - João Lucas
-    <div>
-      <a href="#top"><input type="button" id="voltar" value="^"></a>
-    </div>
-  </div>
-</footer>
-</main>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-</body></html>
+          <div class="footer_subscribe">
+            <h3>Subscribe</h3>
+
+            <p>
+              Entre com o seu e-mail para receber notificações sobre promoções
+            </p>
+
+            <div class="input_group">
+              <input type="email" id="email" />
+              <button id="carta"><i class="fa-regular fa-envelope"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="footer_copyright">
+          © 2023 - Todos direitos reservados - João Lucas
+          <div>
+            <a href="#top"><input type="button" id="voltar" value="^" /></a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script
+      src="/docs/4.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
