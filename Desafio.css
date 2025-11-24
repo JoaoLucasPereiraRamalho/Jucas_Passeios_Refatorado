@@ -671,17 +671,72 @@ header button:hover {
   scale: 1.1;
   box-shadow: 2px 2px 15px 3px black;
 }
-.paiQ {
-  display: flex;
-  flex-direction: row;
-  font-family: "Inter", sans-serif;
-  font-size: 2;
-}
+.paiQ,
 .paiQ2 {
+  display: block;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.paiQ {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+.promo-card {
+  background-color: var(--color-neutral-40);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 250px;
   display: flex;
+  flex-direction: column;
+}
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.promo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.promo-content {
+  padding: 15px;
+  z-index: 2;
+  position: relative;
+}
+.promo-title {
+  font-family: "Archivo Black", sans-serif;
+  color: var(--cor-primaria);
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+.promo-highlight {
+  font-weight: bold;
+  color: var(--cor-secundaria);
+  font-size: 1.5em;
+  display: block;
+  margin-top: 5px;
+}
+/* --- GRID DEFINITION: CRIANDO O LAYOUT DESTAQUE (Desktop) --- */
+.promo-card.grande-horizontal {
+  grid-column: span 2;
   flex-direction: row;
-  font-family: "Inter", sans-serif;
-  font-size: 2;
+}
+.promo-card.grande-vertical {
+  grid-row: span 2;
+}
+.promo-card.grande-vertical .promo-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .quadro1 {
   margin-top: 30px;
@@ -1006,8 +1061,6 @@ footer {
     width: 100%;
     margin: 0;
   }
-
-  /* MEDIA QUERY PARA BARRA DE BUSCA EM MOBILE */
   .paiT {
     flex-direction: column;
     padding-top: 100px;
@@ -1053,8 +1106,6 @@ footer {
   #buscar {
     width: 100%;
   }
-
-  /* MEDIA QUERY PARA CARDS EM TABLET/MOBILE */
   .cards {
     width: 100%;
   }
@@ -1062,8 +1113,6 @@ footer {
     width: calc(50% - 20px);
     min-width: 280px;
   }
-
-  /* NOVO: ESTILOS PARA O BLOCO PRINCIPAL CARDS vs TEXTO (.paiC) */
   .paiC {
     flex-direction: column;
     align-items: center;
@@ -1076,8 +1125,6 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
-
-  /* NOVO: ESTILOS PARA AS SEÇÕES DE CONTEÚDO (Hospedagem / Jucas Passeios) */
   .pai,
   .pait1 {
     flex-direction: column;
@@ -1101,8 +1148,6 @@ footer {
   .pai {
     flex-direction: column-reverse;
   }
-
-  /* NOVO: Ajuste da Faixa de Ofertas em Mobile */
   .faixa {
     min-height: 300px;
     justify-content: center;
@@ -1113,6 +1158,23 @@ footer {
     width: 90%;
     padding: 40px 0;
     margin: 0 auto;
+  }
+
+  .paiQ {
+    grid-template-columns: 1fr;
+    grid-row: auto;
+    gap: 15px;
+  }
+  .promo-card,
+  .promo-card.grande-horizontal,
+  .promo-card.grande-vertical {
+    grid-column: span 1;
+    grid-row: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  .promo-card img {
+    height: 200px;
   }
 }
 
@@ -1137,16 +1199,19 @@ footer {
   }
 }
 #voltar {
-  position: absolute;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
   width: 40px;
-  height: 25px;
+  height: 40px;
   color: white;
   background-color: #7f37c9;
   border: solid 3px #7f37c9;
-  border-radius: 20px;
-  margin-left: 25%;
+  border-radius: 50%;
   transition: all 0.8s;
 }
 #voltar:hover {
-  scale: 1.5;
+  scale: 1.1;
+  box-shadow: 2px 2px 15px 3px black;
 }
