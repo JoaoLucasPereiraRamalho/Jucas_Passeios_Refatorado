@@ -165,6 +165,88 @@ header button:hover {
     width: 100%;
     margin: 0;
   }
+
+  /* MEDIA QUERY PARA BARRA DE BUSCA EM MOBILE */
+  .paiT {
+    flex-direction: column;
+    padding-top: 100px;
+    position: relative;
+    gap: 20px;
+    align-items: center;
+  }
+  .lugar,
+  .data,
+  .quartos {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+  }
+  .lugar div,
+  .data div,
+  .quartos div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 48%;
+  }
+  .lugar b,
+  .data b,
+  .quartos b {
+    margin-bottom: 5px;
+  }
+  .lugar input,
+  .data input,
+  .quartos select {
+    width: 100%;
+  }
+  .buscar {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #buscar {
+    width: 100%;
+  }
+
+  /* ESTILOS PARA TABLET: 2 CARDS POR LINHA */
+  .cards {
+    width: 100%;
+  }
+  .card {
+    width: calc(50% - 20px);
+    min-width: 280px;
+  }
+}
+
+/* NOVA REGRA PARA CELULAR: ABAIXO DE 600PX */
+@media (max-width: 600px) {
+  .cards {
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer_content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media screen and (max-width: 426px) {
+  .footer_content {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 3rem 2rem;
+  }
 }
 
 .branco {
@@ -266,8 +348,9 @@ header button:hover {
   border-radius: 15px;
   background-color: white;
   box-shadow: -1px -1px 15px -2px gray;
-  width: 200px;
-  height: 350px;
+  width: calc(25% - 20px);
+  min-width: 190px;
+  height: 300px;
   overflow: hidden;
   position: relative;
   transition: all 0.3s linear;
@@ -278,6 +361,7 @@ header button:hover {
 }
 .card img {
   width: 100%;
+  height: 150px; /* Reduz a altura da imagem para caber no novo height do card */
   display: block;
   transition: all 0.3s linear;
 }
@@ -314,8 +398,18 @@ header button:hover {
   margin: 10px;
 }
 
+.descri {
+  padding: 5px 10px;
+}
+.descri h5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
 .valor {
-  margin-top: 100px;
+  margin-top: 80px;
+  padding-bottom: 0;
 }
 #valor {
   padding-left: 10px;
@@ -350,13 +444,13 @@ header button:hover {
 .paiT {
   display: flex;
   flex-direction: row;
-  padding-top: 350px; /* Ajustado para sobrepor o carrossel */
+  padding-top: 350px;
   position: absolute;
   width: 100%;
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
-  flex-wrap: wrap; /* Permite quebras de linha em telas menores que o desktop */
+  flex-wrap: wrap;
 }
 
 .paiC {
@@ -429,7 +523,7 @@ header button:hover {
   flex-direction: row;
 }
 .cards {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -468,7 +562,7 @@ header button:hover {
   margin-top: 50px;
   margin-left: 4%;
   margin-right: 2%;
-  width: 40%;
+  width: 20%;
   justify-content: center;
   text-align: justify;
 }
@@ -853,13 +947,12 @@ footer {
     margin: 0;
   }
 
-  /* MEDIA QUERY PARA BARRA DE BUSCA EM MOBILE (NOVO) */
+  /* MEDIA QUERY PARA BARRA DE BUSCA EM MOBILE */
   .paiT {
     flex-direction: column;
     padding-top: 100px;
     position: relative;
     gap: 20px;
-    /* Centraliza a barra de busca na tela */
     align-items: center;
   }
   .lugar,
@@ -868,11 +961,10 @@ footer {
     width: 90%;
     max-width: 90%;
     margin: 0 auto;
-    /* Garante que o conteúdo interno dos inputs/selects flua */
     flex-wrap: wrap;
-    height: auto; /* Permite que o bloco cresça */
-    padding: 10px; /* Adicionado padding para melhor visual */
-    text-align: left; /* Alinha o texto das labels à esquerda */
+    height: auto;
+    padding: 10px;
+    text-align: left;
   }
   .lugar div,
   .data div,
@@ -880,7 +972,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 48%; /* Divide o espaço para origem/destino, data saida/chegada, etc. */
+    width: 48%;
   }
   .lugar b,
   .data b,
@@ -890,10 +982,8 @@ footer {
   .lugar input,
   .data input,
   .quartos select {
-    width: 100%; /* Faz os inputs ocuparem a largura do div interno */
+    width: 100%;
   }
-
-  /* Alinhamento do botão Buscar */
   .buscar {
     width: 90%;
     max-width: 90%;
@@ -902,6 +992,23 @@ footer {
   }
   #buscar {
     width: 100%;
+  }
+
+  /* MEDIA QUERY PARA CARDS EM TABLET/MOBILE */
+  .cards {
+    width: 100%;
+  }
+  .card {
+    width: calc(50% - 20px);
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
   }
 }
 
