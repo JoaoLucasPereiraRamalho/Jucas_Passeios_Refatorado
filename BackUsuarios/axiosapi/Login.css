@@ -1,176 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2? family= Inter:wght@100;200;300;400;500;600 & family= Kanit:wght@100;200;300; 400;500 & display=swap');
-@import url('https://fonts.googleapis.com/css2? family= Inter:wght@100;200;300;400;500;600 & display=swap');
-
-.fundo{
-    width: 100%;
-    height: 643px;
-    justify-content: center;
-}
-
-.fundo img{
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-}
-.pai{
-    position: absolute;
-    margin-top: 10%;
-    margin-left: 33%;
-    width: 33%;
-    height: 450px;
-    box-shadow: 1px 3px 12px black;
-    background-color: rgb(249, 240, 224);
-    opacity: 0.8;
+:root {
+  --cor-primaria: #0f3c4c; /* Azul Escuro (Para Textos/Header) */
+  --cor-secundaria: orange; /* Laranja (Para Botões/Destaque) */
+  --text-light: #fff;
+  --text-dark: #333;
+  --border-gray: #ddd;
+  --link-color: #7f37c9; /* Roxo/Azul para links e checkboxes */
 }
 
-.pai b{
-    text-align: center;
-    font-size: 20px;
-    font-family:'Kanit', sem serifa;
-    color: #0f3c4c;
-}
-.pai input{
-    border:solid 2px orange;
-    border-width: 1px;
-    text-align: center;
-    width: 80%;
-    height: 50px;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
 }
 
-.login{
-    text-align: center;
-    font-size: 26px;
-    width: 100%;
-    height: 10%;
-    font-family:'Kanit', sem serifa;
-    color: #0f3c4c;
-}
-.inputs{
-    padding-top: 10%;
-    width: 100%;
-    height: 50%;
-    text-align: center;
+/* --- LAYOUT DA PÁGINA (MAIN) --- */
+
+.login-page {
+  display: flex;
+  flex-grow: 1; /* Faz o container crescer para ocupar o espaço abaixo do header */
+  margin-top: 70px; /* Compensa o header fixo */
+  width: 100%;
+  margin: 70px auto 0 auto; /* Centraliza a caixa de login abaixo do header */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Fundo principal */
 }
 
-.envio{
-    padding-top: 10%;
-    width: 100%;
-    height: 15%;
-    text-align: center;
-    color: orange;
-}
-.envio input{
-    color: white;
-    background-color: orange;
-}
-.cadastro{
-    text-align: center;
-    width: 100%;
-    height: 10%;
+/* --- SEÇÃO DE BOAS-VINDAS (ESQUERDA - Com Imagem) --- */
+.welcome-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 500px;
 }
 
-body a {
-    transition: all 0.8s;
-    text-decoration:none;   
- }
- 
-
- body a:visited {
-     color: black;
- }
- 
- /* mouse over */
- body a:hover {
-     color: orange;
- }
-
- #cadastre-se:hover{
-    color: orange;
- }
- 
- /* link selecionado */
- body a:active {
-     color: var(--color-neutral-40);
- }
-
-body{
-    margin:0;
+.welcome-section .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
-.header{
-    width: 100%;
-    height: 70px;
-    background-color: #0f3c4c;
+
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Adiciona uma camada escura/gradiente para o texto se destacar (cor do cabeçalho) */
+  background: rgba(15, 60, 76, 0.6);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-content {
+  z-index: 3;
+  color: var(--text-light);
+  max-width: 350px;
+  padding: 20px;
+  text-align: center;
+}
+.welcome-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.welcome-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* --- SEÇÃO DO FORMULÁRIO DE LOGIN (DIREITA - Fundo Branco) --- */
+.login-section {
+  flex: 0.5;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-form-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.input-group input {
+  width: calc(100% - 50px);
+  padding: 12px 15px 12px 45px;
+  border: 1px solid var(--border-gray);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* Checkbox Style (Reutilizado do CSS anterior) */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+  color: #555;
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid var(--border-gray);
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-password {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.sign-in-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--cor-secundaria);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.sign-in-button:hover {
+  background-color: darkorange;
+}
+
+.create-account-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.create-account-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.create-account-link:hover {
+  text-decoration: underline;
+}
+
+/* --- ESTILOS RESPONSIVOS DO HEADER --- */
+
+.header {
+  width: 100%;
+  height: 70px;
+  background-color: var(--cor-primaria);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  position: fixed;
+  color: aliceblue;
+  z-index: 1000;
+}
+.home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navegar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.direita {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acoes-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.desenvolvedor {
+  margin-top: 55px;
+  font-size: 8px;
+  position: absolute;
+  right: 30px;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+#buscafake {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+header button,
+#login {
+  border-radius: 3px;
+  width: 80px;
+  height: 40px;
+  transition: 1s;
+  color: var(--cor-secundaria);
+  border: solid 1px var(--cor-secundaria);
+  background-color: white;
+}
+button:hover {
+  background-color: var(--cor-secundaria);
+  color: white;
+}
+#login:hover {
+  background-color: var(--cor-secundaria);
+  color: white;
+}
+
+/* --- RESPONSIVIDADE PRINCIPAL --- */
+
+@media (max-width: 992px) {
+  /* Esconde o menu de desktop e mostra o hamburger */
+  .navegar,
+  .direita,
+  .desenvolvedor {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .header {
+    padding: 0 15px;
+  }
+  /* Estilos do menu aberto (reutilizados) */
+  .header.menu-open .navegar {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: fixed;
-    color:aliceblue;
-    z-index: 999;
-}
-
-.header b{
-    margin-left: 15px;
-}
-.home{
-    width: 20%;
-    height: 70px;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-}
-
-.navegar{
-    width: 50%;
-    height: 70px;
-    padding-top: 30px;
-}
-
-.direita{
-    width: 30%;
-    height: 70px;
-}
-
-#buscafake{
-    width: 15%;
-    height: 40px;
-    border-radius: 5px;
-    border: solid 1px gray;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-header button{
-    border-radius: 3px;
-    width: 5%;
-    height: 40px;
-    transition: 1s;
-    color: orange;
-    border:solid 1px orange;
-    background-color: white;
-    margin-top: 15px;
-}
-button:hover{
-    background-color: orange;
-    color: white;
-}
-#login{
-    border-radius: 3px;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 70px;
+    left: 0;
     width: 100%;
-    height: 40px;
-    transition: 1s;
-    color: orange;
-    border:solid 1px orange;
-    background-color: white;
-    margin-top: 15px;
+    background-color: var(--cor-primaria);
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+  }
+  .header.menu-open .acoes-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .header.menu-open .direita {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 10px 20px 20px;
+    width: calc(100% - 40px);
+  }
+  .header.menu-open #buscafake,
+  .header.menu-open #login,
+  .header.menu-open #buscar-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* EMPILHAMENTO DA TELA DE LOGIN */
+  .login-page {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: auto;
+    margin: 70px auto 0 auto;
+    box-shadow: none;
+  }
+  .welcome-section {
+    min-height: 300px; /* Altura fixa para a seção de boas-vindas em mobile */
+  }
+  .login-section {
+    padding: 40px 20px;
+  }
+  .welcome-overlay {
+    background: rgba(
+      15,
+      60,
+      76,
+      0.7
+    ); /* Aumenta a opacidade do overlay em mobile */
+  }
 }
-#login:hover{
-    background-color: orange;
-    color: white;
-}
-
-
-
-

@@ -1,12 +1,10 @@
-@import url("Desafio.css"); /* Importa todas as regras de header, footer e variáveis */
-
-/* --- LAYOUT HERO/INTRODUÇÃO (BASEADO NO NOVO MODELO) --- */
+@import url("Desafio.css");
 
 .hero-intro {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 100px 30px 60px; /* Padding ajustado para o header fixo */
+  padding: 100px 30px 60px;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
@@ -16,11 +14,11 @@
 .intro-left {
   width: 40%;
   min-width: 300px;
-  padding-top: 100px; /* Alinha o texto com o centro dos cards */
+  padding-top: 100px;
 }
 .logo-icon {
   font-size: 3rem;
-  color: var(--cor-secundaria); /* Laranja */
+  color: var(--cor-secundaria);
   margin-bottom: 20px;
   display: block;
 }
@@ -48,40 +46,37 @@
 
 .cards-carousel {
   width: 60%;
-  min-width: 0; /* Permite que o Flexbox funcione corretamente */
-  overflow-x: scroll; /* ATIVA A ROLAGEM HORIZONTAL */
+  min-width: 0;
+  overflow-x: scroll;
   overflow-y: hidden;
   padding: 20px 0;
 }
-/* Esconde a barra de rolagem para um visual mais limpo */
+
 .cards-carousel::-webkit-scrollbar {
   display: none;
 }
 .cards-carousel {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .carousel-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 20px; /* Espaço entre os cards */
-  padding-right: 40px; /* Adiciona espaço no final para rolagem */
+  gap: 20px;
+  padding-right: 40px;
 }
 
-/* --- ESTILO DOS CARDS INDIVIDUAIS (Inspirado no modelo) --- */
-
 .card.promo-card {
-  /* Largura fixa é necessária para rolagem horizontal previsível */
   width: 250px;
   min-width: 250px;
-  height: auto; /* Remove altura fixa */
-  flex-shrink: 0; /* Impede que o card encolha */
+  height: auto;
+  flex-shrink: 0;
 
   border: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  transition: none; /* Remove transição de hover do Desafio.css para cards */
+  transition: none;
 }
 .card.promo-card:hover {
   border-color: var(--cor-secundaria);

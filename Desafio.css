@@ -215,11 +215,11 @@ header button:hover {
 
   /* MEDIA QUERY PARA CARDS EM TABLET/MOBILE */
   .cards {
-    width: 100%;
+    width: 95%;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   .card {
-    width: calc(50% - 20px);
-    min-width: 280px;
+    min-width: 0;
   }
 
   /* ESTILOS PARA O BLOCO PRINCIPAL CARDS vs TEXTO (.paiC) */
@@ -276,10 +276,14 @@ header button:hover {
 }
 
 @media (max-width: 600px) {
+  .cards {
+    width: 95%;
+    grid-template-columns: 1fr;
+  }
   .card {
-    width: 90%;
-    max-width: 400px;
-    margin: 10px auto;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
   }
 }
 
@@ -391,26 +395,30 @@ header button:hover {
 }
 
 .card {
-  margin: 10px;
-  border-radius: 15px;
+  margin: 0;
+  border-radius: 12px;
   background-color: white;
-  box-shadow: -1px -1px 15px -2px gray;
-  width: calc(25% - 20px);
-  min-width: 190px;
-  height: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   position: relative;
-  transition: all 0.3s linear;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 .imagem_card {
+  width: 100%;
   overflow: hidden;
   position: relative;
+  flex: 0 0 auto;
 }
+.card .imagem_card img,
 .card img {
   width: 100%;
-  height: 150px;
+  height: 140px;
+  object-fit: cover;
   display: block;
-  transition: all 0.3s linear;
+  transition: transform 0.4s ease;
 }
 
 .card:hover {
@@ -418,31 +426,32 @@ header button:hover {
 }
 
 .card:hover img {
-  scale: 1.7;
+  transform: scale(1.05);
 }
 
-#imagem {
-  width: 200px;
-  height: 150px;
-  border-radius: 15px 15px 0px 0px;
+.img-card {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
 }
 
-#butao1 {
-  font-size: small;
+.btn-card {
+  font-size: 0.8rem;
   position: absolute;
-  margin-left: 100px;
-  margin-top: -10px;
-  border-radius: 10px;
+  right: 10px;
+  top: 10px;
+  border-radius: 8px;
   background-color: var(--cor-secundaria);
-  border-width: 0px;
-  color: aliceblue;
-  width: 70px;
-  height: 20px;
+  border: 0;
+  color: #fff;
+  padding: 6px 10px;
+  z-index: 3;
 }
 
 #descri {
-  position: absolute;
-  margin: 10px;
+  position: static;
+  margin: 0;
 }
 
 .descri {
@@ -593,11 +602,13 @@ header button:hover {
 }
 
 .cards {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0 auto;
+  align-items: start;
 }
 
 .textocard {
@@ -1107,11 +1118,11 @@ footer {
     width: 100%;
   }
   .cards {
-    width: 100%;
+    width: 95%;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   .card {
-    width: calc(50% - 20px);
-    min-width: 280px;
+    min-width: 0;
   }
   .paiC {
     flex-direction: column;
@@ -1179,10 +1190,14 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .cards {
+    width: 95%;
+    grid-template-columns: 1fr;
+  }
   .card {
-    width: 90%;
-    max-width: 400px;
-    margin: 10px auto;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
   }
 }
 
