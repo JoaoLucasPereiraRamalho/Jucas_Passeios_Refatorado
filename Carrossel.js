@@ -1,21 +1,8 @@
-let count = 1;
-document.getElementById("radio1").checked = true;
+// Slider automático simples
+const slides = document.querySelector(".slides");
+let index = 0;
 
-setInterval(function () {
-  nextImage();
-}, 2000);
-
-function nextImage() {
-  count++;
-  if (count > 4) {
-    count = 1;
-  }
-
-  document.getElementById("radio" + count).checked = true;
-}
-
-document.querySelector(".menu-toggle").addEventListener("click", function () {
-  // Esta função adiciona ou remove a classe 'menu-open' na tag <header>.
-  // O CSS que definimos usa essa classe para mostrar ou esconder o menu mobile.
-  document.querySelector(".header").classList.toggle("menu-open");
-});
+setInterval(() => {
+  index = (index + 1) % 3;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}, 5000);
