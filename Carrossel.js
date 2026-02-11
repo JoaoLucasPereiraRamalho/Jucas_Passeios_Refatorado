@@ -1,43 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel");
   const track = document.querySelector(".carousel-track");
   const slides = document.querySelectorAll(".carousel-slide");
   const btnPrev = document.querySelector(".carousel-btn.prev");
   const btnNext = document.querySelector(".carousel-btn.next");
 
-  if (!track || slides.length === 0) {
-    console.warn("Carrossel não inicializado: elementos não encontrados.");
+  if (!carousel || !track || slides.length === 0) {
+    console.warn("Carrossel não encontrado no HTML.");
     return;
   }
 
   let currentIndex = 0;
+  let slideWidth = slides[0].clientWidth;
+  let autoplay;
   let startX = 0;
   let isDragging = false;
-  let autoplayInterval;
 
+  // Atualiza posição
   function updateCarousel() {
-    const slideWidth = slides[0].offsetWidth;
+    slideWidth = slides[0].clientWidth;
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
 
+  // Próximo slide
   function nextSlide() {
     currentIndex = (currentIndex + 1) % slides.length;
     updateCarousel();
   }
 
+  // Slide anterior
   function prevSlide() {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     updateCarousel();
   }
 
+  // Autoplay
   function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 4000);
+    autoplay = setInterval(nextSlide, 4000);
   }
 
   function stopAutoplay() {
-    clearInterval(autoplayInterval);
+    clearInterval(autoplay);
   }
 
-  // Botões
+  // Eventos botões
   if (btnNext) {
     btnNext.addEventListener("click", () => {
       stopAutoplay();
@@ -54,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Touch (mobile)
+  // Swipe mobile
   track.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -63,11 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   track.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
-    const diff = startX - e.touches[0].clientX;
+
+    const moveX = e.touches[0].clientX;
+    const diff = startX - moveX;
+
     if (diff > 50) {
       nextSlide();
       isDragging = false;
-    } else if (diff < -50) {
+    }
+
+    if (diff < -50) {
       prevSlide();
       isDragging = false;
     }
@@ -78,8 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
   });
 
-  // Resize
+  // Responsivo
   window.addEventListener("resize", updateCarousel);
+
+  // Pausar quando mouse estiver sobre
+  carousel.addEventListener("mouseenter", stopAutoplay);
+  carousel.addEventListener("mouseleave", startAutoplay);
 
   // Inicialização
   updateCarousel();
