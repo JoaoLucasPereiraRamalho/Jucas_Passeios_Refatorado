@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Jucas Passeios</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+  <script src="dashboard.js" defer></script>
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container">
+    <span class="navbar-brand">Jucas Passeios - Dashboard</span>
+    <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#modalCriar">
+      Nova Viagem
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="row" id="listaViagens"></div>
+</div>
+
+<!-- MODAL CRIAR -->
+<div class="modal fade" id="modalCriar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastrar Viagem</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCriar">
+          <input class="form-control mb-2" type="text" id="createTitle" placeholder="Título" required>
+          <textarea class="form-control mb-2" id="createDescription" placeholder="Descrição" required></textarea>
+          <input class="form-control mb-2" type="number" id="createPrice" placeholder="Preço" required>
+          <input class="form-control mb-2" type="text" id="createVehicle" placeholder="Veículo" required>
+          <input class="form-control mb-2" type="text" id="createImage" placeholder="URL da Imagem" required>
+          <button class="btn btn-primary w-100" type="submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal fade" id="modalEditar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Viagem</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formEditar">
+          <input type="hidden" id="editId">
+          <input class="form-control mb-2" type="text" id="editTitle" required>
+          <textarea class="form-control mb-2" id="editDescription" required></textarea>
+          <input class="form-control mb-2" type="number" id="editPrice" required>
+          <input class="form-control mb-2" type="text" id="editVehicle" required>
+          <input class="form-control mb-2" type="text" id="editImage" required>
+          <button class="btn btn-success w-100" type="submit">Atualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
