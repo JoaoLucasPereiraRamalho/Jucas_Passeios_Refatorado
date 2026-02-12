@@ -3,27 +3,39 @@
 const url = "http://localhost:5000/api";
 const lista = document.getElementById("listaViagens");
 
-// 🔄 Carregar todas as viagens
+// 🔄 Carregar viagens
 function carregarViagens() {
-  axios.get(url).then((response) => {
-    lista.innerHTML = "";
-    response.data.forEach((viagem) => {
-      lista.innerHTML += `
+  axios
+    .get(url)
+    .then((response) => {
+      lista.innerHTML = "";
+
+      response.data.forEach((viagem) => {
+        lista.innerHTML += `
           <div class="col-md-4 mb-4">
-            <div class="card shadow">
-              <img src="${viagem.image}" class="card-img-top" style="height:200px; object-fit:cover;">
+            <div class="card shadow-sm">
+              <img src="${viagem.image}" class="card-img-top" style="height:220px; object-fit:cover;">
               <div class="card-body">
                 <h5>${viagem.title}</h5>
-                <p>${viagem.description}</p>
-                <p><strong>R$ ${viagem.price}</strong></p>
-                <button class="btn btn-warning btn-sm me-2" onclick="abrirEditar(${viagem.id})">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="deletar(${viagem.id})">Deletar</button>
+                <p class="text-muted">${viagem.description}</p>
+                <p class="price">R$ ${viagem.price}</p>
+                <div class="d-flex justify-content-between mt-3">
+                  <button class="btn btn-warning btn-sm" onclick="abrirEditar(${viagem.id})">
+                    ✏ Editar
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="deletar(${viagem.id})">
+                    🗑 Deletar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         `;
+      });
+    })
+    .catch(() => {
+      lista.innerHTML = "<p class='text-center'>Erro ao carregar viagens.</p>";
     });
-  });
 }
 
 carregarViagens();
@@ -47,7 +59,7 @@ document.getElementById("formCriar").addEventListener("submit", function (e) {
   });
 });
 
-// ✏️ Abrir modal editar
+// ✏ Abrir modal editar
 window.abrirEditar = function (id) {
   axios.get(`${url}/${id}`).then((response) => {
     const v = response.data;
@@ -85,7 +97,7 @@ document.getElementById("formEditar").addEventListener("submit", function (e) {
 
 // 🗑 Deletar
 window.deletar = function (id) {
-  if (!confirm("Tem certeza que deseja deletar?")) return;
+  if (!confirm("Tem certeza que deseja deletar esta viagem?")) return;
 
   axios.delete(`${url}/${id}`).then(() => {
     carregarViagens();

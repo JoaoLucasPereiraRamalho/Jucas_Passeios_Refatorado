@@ -5,23 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Jucas Passeios</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Axios -->
   <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+
   <script src="dashboard.js" defer></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, #4e73df, #224abe);
+    }
+
+    .card {
+      border: none;
+      border-radius: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+    }
+
+    .btn-primary {
+      background: #4e73df;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #2e59d9;
+    }
+
+    .btn-warning {
+      background: #f6c23e;
+      border: none;
+      color: #000;
+    }
+
+    .btn-danger {
+      background: #e74a3b;
+      border: none;
+    }
+
+    .modal-content {
+      border-radius: 20px;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #4e73df;
+    }
+  </style>
 </head>
 
-<body class="bg-light">
+<body>
 
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-dark">
   <div class="container">
-    <span class="navbar-brand">Jucas Passeios - Dashboard</span>
+    <span class="navbar-brand fw-bold">Jucas Passeios - Dashboard</span>
     <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#modalCriar">
-      Nova Viagem
+      + Nova Viagem
     </button>
   </div>
 </nav>
 
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row" id="listaViagens"></div>
 </div>
 
