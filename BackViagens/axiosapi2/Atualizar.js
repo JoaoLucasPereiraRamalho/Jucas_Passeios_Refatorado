@@ -1,32 +1,74 @@
 "use strict";
+
 const url = "http://localhost:5000/api";
 
-function updateViagem(viagem, id) {
-  axios.put(`${url}/${id}`, viagem)
-    .then(response => {
-      alert(JSON.stringify(response.data));
-      getViagens();
-    })
-    .catch(error => console.error(error));
-}
+const btnBuscar = document.getElementById("btnBuscar");
+const form = document.getElementById("formAtualiza");
+const mensagem = document.getElementById("mensagem");
 
-document.getElementById('formAtualiza').addEventListener('submit', function (event) {
+// 🔎 Buscar viagem pelo ID
+btnBuscar.addEventListener("click", () => {
+  const id = document.getElementById("idBusca").value;
+
+  if (!id) {
+    mostrarMensagem("Informe um ID válido.", "danger");
+    return;
+  }
+
+  axios
+    .get(`${url}/${id}`)
+    .then((response) => {
+      const data = response.data;
+
+      document.getElementById("id").value = data.id;
+      document.getElementById("title").value = data.title;
+      document.getElementById("description").value = data.description;
+      document.getElementById("price").value = data.price;
+      document.getElementById("vehicle").value = data.vehicle;
+      document.getElementById("image").value = data.image;
+
+      mostrarMensagem("Viagem carregada com sucesso!", "success");
+    })
+    .catch(() => {
+      mostrarMensagem("Viagem não encontrada.", "danger");
+    });
+});
+
+// 🔄 Atualizar viagem
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const viagemData = {};
+  const id = document.getElementById("id").value;
 
-  formData.forEach((value, title) => {
-    viagemData[title] = value;
-  });
-
-  // Certifique-se de que o formulário tenha um campo 'id' para identificar a viagem
-  const viagemId = viagemData.id;
-
-  if (viagemId) {
-    // Chame a função de atualização da viagem
-    updateViagem(viagemData, viagemId);
-  } else {
-    alert("Por favor, forneça um ID válido para atualizar a viagem.");
+  if (!id) {
+    mostrarMensagem("Busque uma viagem antes de atualizar.", "warning");
+    return;
   }
+
+  const viagemAtualizada = {
+    title: document.getElementById("title").value,
+    description: document.getElementById("description").value,
+    price: document.getElementById("price").value,
+    vehicle: document.getElementById("vehicle").value,
+    image: document.getElementById("image").value,
+  };
+
+  axios
+    .put(`${url}/${id}`, viagemAtualizada)
+    .then(() => {
+      mostrarMensagem("Viagem atualizada com sucesso!", "success");
+      form.reset();
+    })
+    .catch(() => {
+      mostrarMensagem("Erro ao atualizar viagem.", "danger");
+    });
 });
+
+// 📢 Função para exibir mensagens bonitas
+function mostrarMensagem(texto, tipo) {
+  mensagem.innerHTML = `
+    <div class="alert alert-${tipo}" role="alert">
+      ${texto}
+    </div>
+  `;
+}
