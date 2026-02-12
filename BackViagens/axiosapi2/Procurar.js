@@ -1,28 +1,73 @@
 "use strict";
+
 const url = "http://localhost:5000/api";
 
-function getViagem(id) {
-  axios.get(`${url}/${id}`)
-    .then(response => {
-      const data = response.data;
+const form = document.getElementById("formProcurar");
+const resultado = document.getElementById("resultado");
 
-      viagemId.textContent = data.id;
-      viagemTitle.textContent = data.title;
-      viagemDescription.textContent = data.description;
-      viagemPrice.textContent = data.price;
-      viagemVehicle.textContent = data.vehicle;
-      viagemImage.src = data.image;
-    })
-    .catch(error => console.log(error));
+// ===============================
+// 🔍 Buscar viagem por ID
+// ===============================
+async function getViagem(id) {
+  resultado.innerHTML = `
+    <div class="text-center">
+      <div class="spinner-border text-warning" role="status"></div>
+      <p>Buscando viagem...</p>
+    </div>
+  `;
+
+  try {
+    const response = await axios.get(`${url}/${id}`);
+    const viagem = response.data;
+
+    renderResultado(viagem);
+  } catch (error) {
+    resultado.innerHTML = `
+      <div class="alert alert-danger text-center">
+        Viagem não encontrada.
+      </div>
+    `;
+
+    console.error(error);
+  }
 }
 
-document.getElementById('formProcurar').addEventListener('submit', function (event) {
-  event.preventDefault();
+// ===============================
+// 🎨 Renderizar resultado
+// ===============================
+function renderResultado(viagem) {
+  resultado.innerHTML = `
+    <div class="card shadow">
+      <img src="${viagem.image}" class="card-img-top" alt="Imagem da viagem">
+      <div class="card-body">
+        <h5 class="card-title">${viagem.title}</h5>
+        <p class="card-text">${viagem.description}</p>
+        <p><strong>Preço:</strong> R$ ${viagem.price}</p>
+        <p><strong>Veículo:</strong> ${viagem.vehicle}</p>
+        <p><strong>ID:</strong> ${viagem.id}</p>
+      </div>
+    </div>
+  `;
+}
 
-  const formData = new FormData(event.target);
-  const viagemId = formData.get('id'); // Obter o valor do campo 'id'
+// ===============================
+// 📩 Evento do formulário
+// ===============================
+if (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  getViagem(viagemId);
-});
+    const id = document.getElementById("id").value;
 
-getViagens();
+    if (!id) {
+      resultado.innerHTML = `
+        <div class="alert alert-warning text-center">
+          Informe um ID válido.
+        </div>
+      `;
+      return;
+    }
+
+    getViagem(id);
+  });
+}
