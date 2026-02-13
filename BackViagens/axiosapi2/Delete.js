@@ -53,18 +53,20 @@ btnDeletar.addEventListener("click", () => {
 
   if (!confirmar) return;
 
-  axios
-    .delete(`${url}/${viagemAtual.id}`)
-    .then(() => {
-      mostrarMensagem("Viagem deletada com sucesso!", "success");
-      dadosViagem.innerHTML = "";
-      btnDeletar.disabled = true;
-      document.getElementById("idBusca").value = "";
-      viagemAtual = null;
-    })
-    .catch(() => {
-      mostrarMensagem("Erro ao deletar viagem.", "danger");
-    });
+  axios.delete(`${url}/${viagemAtual.id}`);
+  window.deletar = function (id) {
+    if (!confirm("Tem certeza que deseja deletar esta viagem?")) return;
+
+    axios
+      .delete(`${url}/${id}`)
+      .then(() => {
+        carregarViagens();
+        mostrarToast("Viagem deletada com sucesso!", "success");
+      })
+      .catch(() => {
+        mostrarToast("Erro ao deletar viagem.", "error");
+      });
+  };
 });
 
 // 📢 Mensagens bonitas

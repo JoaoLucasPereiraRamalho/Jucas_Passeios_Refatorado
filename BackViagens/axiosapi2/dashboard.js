@@ -52,11 +52,17 @@ document.getElementById("formCriar").addEventListener("submit", function (e) {
     image: createImage.value,
   };
 
-  axios.post(url, novaViagem).then(() => {
-    carregarViagens();
-    this.reset();
-    bootstrap.Modal.getInstance(document.getElementById("modalCriar")).hide();
-  });
+  axios
+    .post(url, novaViagem)
+    .then(() => {
+      carregarViagens();
+      this.reset();
+      bootstrap.Modal.getInstance(document.getElementById("modalCriar")).hide();
+      mostrarToast("Viagem cadastrada com sucesso!", "success");
+    })
+    .catch(() => {
+      mostrarToast("Erro ao cadastrar viagem.", "error");
+    });
 });
 
 // ✏ Abrir modal editar
@@ -103,3 +109,28 @@ window.deletar = function (id) {
     carregarViagens();
   });
 };
+
+// 🔔 Toast Notification
+function mostrarToast(mensagem, tipo = "success") {
+  const toastEl = document.getElementById("toast");
+  const toastMensagem = document.getElementById("toastMensagem");
+
+  toastMensagem.textContent = mensagem;
+
+  toastEl.classList.remove(
+    "text-bg-success",
+    "text-bg-danger",
+    "text-bg-warning",
+  );
+
+  if (tipo === "success") {
+    toastEl.classList.add("text-bg-success");
+  } else if (tipo === "error") {
+    toastEl.classList.add("text-bg-danger");
+  } else {
+    toastEl.classList.add("text-bg-warning");
+  }
+
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+}

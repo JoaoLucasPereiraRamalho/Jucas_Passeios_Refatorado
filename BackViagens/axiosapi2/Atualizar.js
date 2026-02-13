@@ -17,20 +17,15 @@ btnBuscar.addEventListener("click", () => {
 
   axios
     .get(`${url}/${id}`)
-    .then((response) => {
-      const data = response.data;
-
-      document.getElementById("id").value = data.id;
-      document.getElementById("title").value = data.title;
-      document.getElementById("description").value = data.description;
-      document.getElementById("price").value = data.price;
-      document.getElementById("vehicle").value = data.vehicle;
-      document.getElementById("image").value = data.image;
-
-      mostrarMensagem("Viagem carregada com sucesso!", "success");
+    .then(() => {
+      carregarViagens();
+      bootstrap.Modal.getInstance(
+        document.getElementById("modalEditar"),
+      ).hide();
+      mostrarToast("Viagem atualizada com sucesso!", "success");
     })
     .catch(() => {
-      mostrarMensagem("Viagem não encontrada.", "danger");
+      mostrarToast("Erro ao atualizar viagem.", "error");
     });
 });
 
